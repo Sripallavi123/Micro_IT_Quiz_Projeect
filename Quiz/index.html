@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <!-- Start Screen -->
+        <div id="start-screen" class="active">
+            <h1>Interactive Quiz Game</h1>
+            <div class="form-group">
+                <label for="username">Enter Your Name:</label>
+                <input type="text" id="username" placeholder="Your name">
+            </div>
+            <div class="form-group">
+                <label for="category">Select Category:</label>
+                <select id="category">
+                    <option value="c">C Programming</option>
+                    <option value="cpp">C++</option>
+                    <option value="java">Java</option>
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="gk">General Knowledge</option>
+                    <option value="science">Science</option>
+                    <option value="history">History</option>
+                </select>
+            </div>
+            <button id="start-btn" class="btn">Start Quiz</button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <section id="quiz-screen">
+            <div class="quiz-header">
+                <div class="quiz-info">
+                    <span id="player-name"></span>
+                    <span id="question-count"></span>
+                </div>
+                <div class="timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="time">30</span>s
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div id="progress" class="progress"></div>
+                </div>
+            </div>
+            
+            <div class="question-container">
+                <h2 id="question-text"></h2>
+                <div id="options-container"></div>
+                <button id="next-btn" class="btn" tabindex="0">Submit Answer</button>
+            </div>
+            
+            <div class="feedback-container hidden" aria-live="polite">
+                <div id="feedback-icon"></div>
+                <p id="feedback-text"></p>
+                <p id="explanation"></p>
+            </div>
+        </section>
+
+        <!-- Result Screen -->
+        <section id="result-screen">
+            <div class="result-card">
+                <span id="result-icon"></span>
+                <h2 id="result-title"></h2>
+                <p id="result-score"></p>
+                <p id="result-message"></p>
+                <div class="result-actions">
+                    <button id="review-btn" class="btn"><i class="fas fa-list"></i> Review Answers</button>
+                    <button id="restart-btn" class="btn"><i class="fas fa-redo"></i> Play Again</button>
+                </div>
+            </div>
+            
+            <div id="review-screen" class="hidden">
+                <h3>Your Quiz Review</h3>
+                <div id="review-questions"></div>
+                <button id="back-to-results" class="btn"><i class="fas fa-arrow-left"></i> Back to Results</button>
+            </div>
+        </section>
+    </div>
+
+    <audio id="correct-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3"></audio>
+    <audio id="wrong-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-fail-notification-946.mp3"></audio>
+    <audio id="complete-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App - Home</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Quiz App CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Homepage CSS -->
+    <style>
+        /* Homepage Background */
+       .home-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8') no-repeat center center/cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+        /* Welcome Text */
+        .welcome-font {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 3rem;
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.5);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .welcome-font span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: letterFadeIn 0.5s ease forwards;
+            position: relative;
+        }
+
+        /* Sparkle Effect */
+        .welcome-font span::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 5px;
+            height: 5px;
+            background: #ffffff;
+            border-radius: 50%;
+            opacity: 0;
+            animation: sparkle 1.5s infinite;
+            animation-delay: calc(var(--index) * 0.1s);
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        @media (min-width: 768px) {
+            .welcome-font {
+                font-size: 4.5rem;
+            }
+        }
+
+        /* Letter Animation */
+        @keyframes letterFadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0) scale(1.1); }
+        }
+
+        /* Button Group */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        @media (min-width: 768px) {
+            .button-group {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        .button {
+            padding: 0.9rem 1.8rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            color: #ffffff;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 255, 255, 0.5);
+        }
+
+        .button-cyan {
+            background: linear-gradient(to right, #4361ee, #3a0ca3);
+        }
+
+        .button-cyan:hover {
+            background: linear-gradient(to right, #3a0ca3, #4361ee);
+        }
+
+        .button-yellow {
+            background: linear-gradient(to right, #f72585, #b5179e);
+        }
+
+        .button-yellow:hover {
+            background: linear-gradient(to right, #b5179e, #f72585);
+        }
+
+        /* About Section */
+        .about-section {
+            max-width: 800px;
+            width: 100%;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 2rem;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .about-section.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .about-section h2 {
+            font-size: 2rem;
+            color: #4361ee;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            background: linear-gradient(to right, #4361ee, #3a0ca3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            color: #212529;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .welcome-font {
+                font-size: 2rem;
+            }
+
+            .about-section {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+
+            .button {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="home-bg">
+    <div class="container text-center">
+        <h1 class="welcome-font" id="welcome-text">Welcome to Quiz App</h1>
+        <div class="button-group">
+            <a href="index.html" class="button button-cyan">
+                <i class="fas fa-play"></i> Get Started
+            </a>
+            <button id="about-btn" class="button button-yellow">
+                <i class="fas fa-info-circle"></i> About Us
+            </button>
+        </div>
+        <div id="about-section" class="about-section hidden">
+            <h2>About Our Quiz App</h2>
+            <p>Welcome to the Interactive Quiz Game, your ultimate destination to test and sharpen your knowledge! Whether you're a coding enthusiast or a trivia buff, our app offers a variety of categories including C, C++, Java, Python, JavaScript, General Knowledge, Science, and History.</p>
+            <p>Enjoy a seamless experience with a 30-second timer per question, instant feedback, and detailed explanations to help you learn. Track your progress, review your answers, and aim for a perfect score to unlock a dazzling blast effect! Built with love for learners everywhere, this app is perfect for students, professionals, and curious minds.</p>
+            <p>Start quizzing now and challenge yourself to become a knowledge master!</p>
+        </div>
+    </div>
+    <script src="home.js"></script>
+</body>
+</html>
