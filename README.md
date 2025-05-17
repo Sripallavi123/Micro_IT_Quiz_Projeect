@@ -30,7 +30,7 @@ Audio: Mixkit sound effects
 Hosting: Static files, served via local server
 
 File Structure
-quiz-app/
+Micro_IT_Quiz_Projeect/
 ├── home.html       # Landing page with Get Started and About buttons
 ├── home.js        # Logic for welcome animation and About toggle
 ├── index.html     # Quiz interface (start, quiz, result screens)
@@ -40,8 +40,8 @@ quiz-app/
 Installation
 
 Clone the Repository:
-git clone https://github.com/your-username/quiz-app.git
-cd quiz-app
+git clone https://github.com/Sripallavi123/quiz-app.git
+cd Micro_IT_Quiz_Projeect
 
 
 Run the App:
@@ -83,7 +83,12 @@ Access on mobile or desktop; layout adjusts automatically.
 
 
 Screenshots
-Coming soon!
+![Screenshot (323)](https://github.com/user-attachments/assets/f92b6220-dbe3-47ca-8a49-ea4a04be3bc8)
+![Screenshot (324)](https://github.com/user-attachments/assets/e148d226-af05-42bf-aaf4-39bba1b2c8fd)
+![Screenshot (325)](https://github.com/user-attachments/assets/c8619663-ece6-454e-84d0-d4385bdab3f4)
+
+
+
 Troubleshooting
 
 Background Not Displaying:
