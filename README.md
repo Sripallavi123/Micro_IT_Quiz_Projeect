@@ -40,7 +40,7 @@ Micro_IT_Quiz_Projeect/
 Installation
 
 Clone the Repository:
-git clone https://github.com/Sripallavi123/quiz-app.git
+git clone https://github.com/Sripallavi123/Micro_IT_Quiz_Projeect.git
 cd Micro_IT_Quiz_Projeect
 
 
